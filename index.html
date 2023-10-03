@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>일루미나티</title>
+	<style type="text/css">
+		.cookie{position: absolute; left: 0; top: 0;}
+		#poetText{z-index: 9; position: absolute;
+				left: 680px;
+				top: -100px;
+				 color: red; font-size: 90px; font-family:'UhBeematsuko'; }
+		.word{opacity: 0; animation: fadein 1s forwards; animation-iteration-count: 1;}
+		@font-face {
+font-family: 'UhBeematsuko';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeematsuko.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+		@keyframes fadein{
+			to{opacity: 1;}
+
+
+		}		 
+
+
+
+	</style>
+</head>
+
+<body>
+<div id="poetText"></div>
+<script type="text/javascript">
+
+
+for(var i=0; i<100;i++){
+	var t = document.createElement("img");
+	t.src = "cookie.png";
+	t.className = "cookie";
+	t.style.width = randomBH(70, 10) + "px";
+	t.style.height = "auto";
+	t.style.left = Math.random()*screen.availWidth + "px";
+	t.style.top = Math.random()*screen.availHeight + "px";
+	document.body.appendChild(t);
+	}
+
+	var poet = "<br>사야할 것<br> <br> 1. 테슬라<br> 2. 애플<br> 3. 엔비디아<br> 4. 마이크로소프트<br> 5. 아마존<br> <br>존버는 승리한다";
+	var poetArr = poet.split(" ");
+	var myTimer = setInterval(print,500);
+	var s =0;
+	function print(){
+		var t= document.createElement("span");
+		t.innerHTML = poetArr[s] + " ";
+		t.className = "word";
+
+		 // 큰따옴표 안에는 작음 따옴표
+		s++;
+		poetText.appendChild(t);
+
+		if (s ==poetArr. length){ //배열에서 중요한 속성 length
+			clearInterval(myTimer);
+		}
+
+
+	}
+
+
+	
+
+
+
+	function randomBH(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+</script>
+</body>
+</html>
